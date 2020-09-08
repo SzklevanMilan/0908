@@ -23,7 +23,41 @@ namespace _0908
             Console.Write("Válasz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
+            for (int i = 0; i < lehetoseg.Length; i++)
+            {
+                if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "2")
+                {
+                    Console.WriteLine("Sajnos a gép nyert.");
+                    if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "1")
+                    {
+                        Console.WriteLine("Ön nyert.");
+                    }
+                }
+            }
 
+            for (int i = 0; i <lehetoseg.Length; i++)
+            {
+                if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "0")
+                {
+                    Console.WriteLine("Ön nyert.");
+                    if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "1")
+                    {
+                        Console.WriteLine("Sajnos a gép nyert.");
+                    }
+                }
+            }
+            for (int i = 0; i < lehetoseg.Length; i++)
+            {
+                    if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "0")
+            {
+                Console.WriteLine("Sajnos a gép nyert.");
+                if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "2")
+                {
+                    Console.WriteLine("Ön nyert.");
+                }
+            }
+            }
+     
             Console.ReadKey();
         }
     }
