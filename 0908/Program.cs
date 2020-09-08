@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace _0908
 {
@@ -10,6 +11,8 @@ namespace _0908
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
+            Console.ReadKey();
         }
     }
 }
