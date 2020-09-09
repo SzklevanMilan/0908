@@ -9,8 +9,11 @@ namespace _0908
 {
     class Program
     {
+        static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
         static void EredmenyKiiras(int gep, int ember)
         {
+            Console.WriteLine("Gép: {0} --- Játékos: {1}",lehetoseg[gep],lehetoseg[ember]);
+
             switch (EmberNyer(gep, ember))
             {
                 case 0:
@@ -47,7 +50,6 @@ namespace _0908
         static void Main(string[] args)
         {
             Random vel = new Random();
-            string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
 
 
             int gepValasz = vel.Next(0, 3);
@@ -57,7 +59,7 @@ namespace _0908
             Console.WriteLine("Kő (0), Papír (1), Olló (2).");
             Console.Write("Válasz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
+            // Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
 
             EredmenyKiiras(gepValasz, jatekosValasz);
             Console.ReadKey();
