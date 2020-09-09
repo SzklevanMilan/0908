@@ -23,6 +23,27 @@ namespace _0908
             Console.Write("Válasz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
+            
+            if (jatekosValasz == gepValasz) //döntetlen
+            {
+                Console.WriteLine("Döntetlen!");
+            }
+            else if (
+                (jatekosValasz == 0 && gepValasz == 1)
+                ||
+                (jatekosValasz == 1 && gepValasz == 2)
+                ||
+                (jatekosValasz == 2 && gepValasz == 0 )
+
+                )//gép nyer
+            {
+                Console.WriteLine("Sajnos a gép nyert!");
+            }
+            else //játékos nyer
+            {
+                Console.WriteLine("Ön nyert!");
+            }
+        
 
             Console.ReadKey();
         }
