@@ -9,6 +9,25 @@ namespace _0908
 {
     class Program
     {
+        static int EmberNyer(int gep, int ember)
+        {
+            if (ember == 0 && gep == 1 //Gép nyer
+                     ||
+                     (ember == 1 && gep == 2)
+                     ||
+                     (ember == 2 && gep == 0))
+            {
+                return 1;
+            }
+            else if (gep == ember) //Döntetlen
+            {
+                return 0;
+            }
+            else //Játékos nyer
+            {
+                return 2;
+            }
+        }
         static void Main(string[] args)
         {
             Random vel = new Random();
@@ -16,48 +35,25 @@ namespace _0908
 
 
             int gepValasz = vel.Next(0, 3);
-            Console.WriteLine("Gép választása:{0}",lehetoseg[gepValasz]);
+            //Console.WriteLine("Gép választása:{0}",lehetoseg[gepValasz]);
 
             int jatekosValasz;
             Console.WriteLine("Kő (0), Papír (1), Olló (2).");
             Console.Write("Válasz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
-            for (int i = 0; i < lehetoseg.Length; i++)
+            switch (EmberNyer(gepValasz,jatekosValasz))
             {
-                if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "2")
-                {
-                    Console.WriteLine("Sajnos a gép nyert.");
-                    if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "1")
-                    {
-                        Console.WriteLine("Ön nyert.");
-                    }
-                }
+                case 0:
+                    Console.WriteLine("Döntetlen.");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyert.");
+                    break;
+                case 2:
+                    Console.WriteLine("Játékos nyert.");
+                    break;
             }
-
-            for (int i = 0; i <lehetoseg.Length; i++)
-            {
-                if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "0")
-                {
-                    Console.WriteLine("Ön nyert.");
-                    if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "1")
-                    {
-                        Console.WriteLine("Sajnos a gép nyert.");
-                    }
-                }
-            }
-            for (int i = 0; i < lehetoseg.Length; i++)
-            {
-                    if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "0")
-            {
-                Console.WriteLine("Sajnos a gép nyert.");
-                if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "2")
-                {
-                    Console.WriteLine("Ön nyert.");
-                }
-            }
-            }
-     
             Console.ReadKey();
         }
     }
