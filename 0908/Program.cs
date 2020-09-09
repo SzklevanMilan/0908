@@ -23,28 +23,41 @@ namespace _0908
             Console.Write("Válasz: ");
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Játékos választása: {0}",lehetoseg[jatekosValasz]);
-            
-            if (jatekosValasz == gepValasz) //döntetlen
+            for (int i = 0; i < lehetoseg.Length; i++)
             {
-                Console.WriteLine("Döntetlen!");
+                if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "2")
+                {
+                    Console.WriteLine("Sajnos a gép nyert.");
+                    if (lehetoseg[gepValasz] == "Kő" && lehetoseg[jatekosValasz] == "1")
+                    {
+                        Console.WriteLine("Ön nyert.");
+                    }
+                }
             }
-            else if (
-                (jatekosValasz == 0 && gepValasz == 1)
-                ||
-                (jatekosValasz == 1 && gepValasz == 2)
-                ||
-                (jatekosValasz == 2 && gepValasz == 0 )
 
-                )//gép nyer
+            for (int i = 0; i <lehetoseg.Length; i++)
             {
-                Console.WriteLine("Sajnos a gép nyert!");
+                if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "0")
+                {
+                    Console.WriteLine("Ön nyert.");
+                    if (lehetoseg[gepValasz] == "Olló" && lehetoseg[jatekosValasz] == "1")
+                    {
+                        Console.WriteLine("Sajnos a gép nyert.");
+                    }
+                }
             }
-            else //játékos nyer
+            for (int i = 0; i < lehetoseg.Length; i++)
             {
-                Console.WriteLine("Ön nyert!");
+                    if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "0")
+            {
+                Console.WriteLine("Sajnos a gép nyert.");
+                if (lehetoseg[gepValasz] == "Papír" && lehetoseg[jatekosValasz] == "2")
+                {
+                    Console.WriteLine("Ön nyert.");
+                }
             }
-        
-
+            }
+     
             Console.ReadKey();
         }
     }
