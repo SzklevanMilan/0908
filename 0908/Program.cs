@@ -96,10 +96,33 @@ namespace _0908
                 "Játékos győzelmek száma: {1} \t" +
                 "Gép győzelmének száma: {2}", menet, jatekosNyer, gepNyer);
         }
+  
+        static void statisztikaFajlbol()
+        {
+            StreamReader stat = new StreamReader("statisztika.txt");
+            while(!stat.EndOfStream)
+            {
+                string[] sor = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+                adat[0] = int.Parse(sor[0]);
+                adat[1] = int.Parse(sor[1]);
+                adat[2] = int.Parse(sor[2]);
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(sor[i]);
+                }
+                    Console.WriteLine(" {0} {1} {2}", adat[0], adat[1], adat[2]);
 
+
+                //Console.WriteLine("{0} {1} {2}",adat[0],adat[1],adat[2]);
+            }
+            Console.WriteLine("---------------------------->Statisztika vége<----------------------------");
+        }
 
         static void Main(string[] args)
         {
+            statisztikaFajlbol();
+
             bool tovabb = true;
             while (tovabb)
             {
