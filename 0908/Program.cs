@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Reflection;
 
 namespace _0908
 {
@@ -14,6 +15,7 @@ namespace _0908
         static int gepNyer = 0;
         static int jatekosNyer = 0;
         static int menet = 0;
+        static int[] adat = new int[3];
         static int GepValasztas()
         {
             Random vel = new Random();
@@ -103,7 +105,6 @@ namespace _0908
             while(!stat.EndOfStream)
             {
                 string[] sor = stat.ReadLine().Split(';');
-                int[] adat = new int[3];
                 adat[0] = int.Parse(sor[0]);
                 adat[1] = int.Parse(sor[1]);
                 adat[2] = int.Parse(sor[2]);
@@ -116,7 +117,17 @@ namespace _0908
 
                 //Console.WriteLine("{0} {1} {2}",adat[0],adat[1],adat[2]);
             }
+            stat.Close();
             Console.WriteLine("---------------------------->Statisztika vége<----------------------------");
+        }
+        static void statisztikaFajlba()
+        {
+            StreamWriter sw = new StreamWriter("statisztika2.txt");
+            for (int i = 0; i < 3; i++)
+            {
+                sw.WriteLine(adat[i]);
+            }
+            sw.Close();
         }
 
         static void Main(string[] args)
@@ -137,8 +148,8 @@ namespace _0908
                tovabb = AkarJatszani();
             }
             StatisztikaKiiras();
+            statisztikaFajlba();
             Console.ReadKey();
         }
-
     }
 }
