@@ -7,7 +7,7 @@
 	- Kő legyőzi az Ollót
 	- A Papír legyőzi a Követ
 	- Az Olló legyőzi a Papírt
-- [] A nyerés megállapítását kiszervezzük metódusba
+- [x] A nyerés megállapítását kiszervezzük metódusba
 	- Ember nyer()
     - Visszaadott érték -> 0, 1, 2
     - 0: Döntetlen
@@ -18,4 +18,6 @@
 
 ##Játékmenet 2.0
 - [x]Addig játszunk amíg ki nem lépünk a játékból.
+- [x] Statisztika megvalósítása
+    - gép,játékos,mennyi menet 
 

@@ -10,6 +10,10 @@ namespace _0908
     class Program
     {
         static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
+
+        static int gepNyer = 0;
+        static int jatekosNyer = 0;
+        static int menet = 0;
         static int GepValasztas()
         {
             Random vel = new Random();
@@ -54,6 +58,7 @@ namespace _0908
                      ||
                      (ember == 2 && gep == 0))
             {
+                gepNyer++;
                 return 1;
             }
             else if (gep == ember) //Döntetlen
@@ -62,6 +67,7 @@ namespace _0908
             }
             else //Játékos nyer
             {
+                jatekosNyer++;
                 return 2;
             }
         }
@@ -84,12 +90,20 @@ namespace _0908
 
         }
 
+         static void StatisztikaKiiras()
+        {
+            Console.WriteLine("\t Menetek száma: {0} \t" +
+                "Játékos győzelmek száma: {1} \t" +
+                "Gép győzelmének száma: {2}", menet, jatekosNyer, gepNyer);
+        }
+
 
         static void Main(string[] args)
         {
             bool tovabb = true;
             while (tovabb)
             {
+                menet++;
                 int gepValasz = GepValasztas();
                 //Console.WriteLine("Gép választása:{0}",lehetoseg[gepValasz]);
 
@@ -99,10 +113,9 @@ namespace _0908
 
                tovabb = AkarJatszani();
             }
-
+            StatisztikaKiiras();
             Console.ReadKey();
         }
 
-       
     }
 }
