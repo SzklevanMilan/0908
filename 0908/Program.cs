@@ -66,17 +66,43 @@ namespace _0908
             }
         }
 
+         static bool AkarJatszani()
+        {
+            Console.WriteLine("-----------------------------------------------------------------------------------------------");
+            Console.Write("Tovább? [i/n]:");
+            string valasz = Console.ReadLine().ToLower();
+            Console.WriteLine("\n-----------------------------------------------------------------------------------------------");
+
+            if (valasz == "i")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         static void Main(string[] args)
         {
-            int gepValasz = GepValasztas();
-            //Console.WriteLine("Gép választása:{0}",lehetoseg[gepValasz]);
+            bool tovabb = true;
+            while (tovabb)
+            {
+                int gepValasz = GepValasztas();
+                //Console.WriteLine("Gép választása:{0}",lehetoseg[gepValasz]);
 
-            int jatekosValasz = JatekosValasztas();
+                int jatekosValasz = JatekosValasztas();
 
-            EredmenyKiiras(gepValasz, jatekosValasz);
+                EredmenyKiiras(gepValasz, jatekosValasz);
+
+               tovabb = AkarJatszani();
+            }
 
             Console.ReadKey();
         }
+
+       
     }
 }
