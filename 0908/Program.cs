@@ -120,13 +120,14 @@ namespace _0908
             stat.Close();
             Console.WriteLine("---------------------------->Statisztika vége<----------------------------");
         }
-        static void statisztikaFajlba()
+        static void StatisztikaFajlba()
         {
-            StreamWriter sw = new StreamWriter("statisztika2.txt");
-            for (int i = 0; i < 3; i++)
-            {
-                sw.WriteLine(adat[i]);
-            }
+            string adat = menet.ToString() + ";" +
+                jatekosNyer.ToString() + ";" +
+                gepNyer.ToString();
+            //FileStream ki = new FileStream("statisztika.txt", FileMode.Append);
+            StreamWriter sw = new StreamWriter("statisztika.txt",true);
+            sw.WriteLine(adat);
             sw.Close();
         }
 
@@ -148,7 +149,7 @@ namespace _0908
                tovabb = AkarJatszani();
             }
             StatisztikaKiiras();
-            statisztikaFajlba();
+            StatisztikaFajlba();
             Console.ReadKey();
         }
     }
